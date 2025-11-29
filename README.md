@@ -31,6 +31,42 @@ Based on the paper: [The PGM-index: a fully-dynamic compressed learned index wit
 *ε is the error bound, which controls the trade-off between index size and query performance.*
 
 
+### Benchmark Results
+
+Benchmarks run on Apple M1 Pro. Dataset: 1M random u64 keys.
+
+#### Query Performance (10K queries, 1M keys)
+
+| Data Structure | Time (µs) | Throughput | vs BTreeSet |
+|----------------|-----------|------------|-------------|
+| HashMap | 68.2 | 146.6 M/s | 12.5x faster |
+| Binary Search | 266.8 | 37.5 M/s | 3.2x faster |
+| **PGM (ε=256)** | **489.5** | **20.4 M/s** | **1.7x faster** |
+| **PGM (ε=64)** | **520.3** | **19.2 M/s** | **1.6x faster** |
+| **PGM (ε=16)** | **656.6** | **15.2 M/s** | **1.3x faster** |
+| BTreeSet | 851.6 | 11.7 M/s | baseline |
+| BTreeMap | 906.1 | 11.0 M/s | 0.9x |
+
+#### Memory Overhead (index only, 1M keys)
+
+| Data Structure | Memory | B/elem | vs BTreeSet |
+|----------------|--------|--------|-------------|
+| **PGM (ε=256)** | **7.7 MB** | **8.09** | **3.2x smaller** |
+| **PGM (ε=64)** | **8.0 MB** | **8.38** | **3.1x smaller** |
+| **PGM (ε=16)** | **9.1 MB** | **9.55** | **2.7x smaller** |
+| BTreeSet | 25.0 MB | 26.18 | baseline |
+| HashMap | 34.0 MB | 35.65 | 1.4x larger |
+| BTreeMap | 40.2 MB | 42.18 | 1.6x larger |
+
+#### Range Queries (1K queries, scan 100 elements)
+
+| Method | Time (µs) | vs BTreeSet |
+|--------|-----------|-------------|
+| **PGM + scan** | **120.5** | **1.4x faster** |
+| Binary Search + scan | 129.9 | 1.3x faster |
+| BTreeSet range | 174.3 | baseline |
+
+
 ## Installation
 
 Add to your `Cargo.toml`:
