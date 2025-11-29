@@ -106,7 +106,6 @@ pub fn adaptive_search<K: Ord>(keys: &[K], key: &K, lo: usize, hi: usize) -> usi
 mod tests {
     use super::*;
     use alloc::vec;
-    use alloc::vec::Vec;
 
     #[test]
     fn test_pgm_sub_eps() {
