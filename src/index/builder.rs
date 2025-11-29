@@ -1,8 +1,8 @@
 use crate::error::Error;
 use crate::index::external;
+use crate::index::key::Indexable;
 #[cfg(feature = "std")]
 use crate::index::owned;
-use crate::index::key::Indexable;
 
 /// Builder for constructing PGM indices with custom parameters.
 ///

@@ -1,6 +1,6 @@
-use pgm_extra::index::{Builder, external::OneLevel, external::Static};
 #[cfg(feature = "std")]
 use pgm_extra::index::owned::Dynamic;
+use pgm_extra::index::{Builder, external::OneLevel, external::Static};
 use proptest::prelude::*;
 
 proptest! {

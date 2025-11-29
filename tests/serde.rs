@@ -1,7 +1,7 @@
 #![cfg(feature = "serde")]
 
-use pgm_extra::{Map, Set};
 use pgm_extra::index::external::Static;
+use pgm_extra::{Map, Set};
 
 #[test]
 fn serde_roundtrip_static() {
@@ -16,10 +16,7 @@ fn serde_roundtrip_static() {
     assert_eq!(index.segments_count(), de.segments_count());
 
     for key in [0u64, 10, 500, 999] {
-        assert_eq!(
-            index.lower_bound(&data, &key),
-            de.lower_bound(&data, &key)
-        );
+        assert_eq!(index.lower_bound(&data, &key), de.lower_bound(&data, &key));
     }
 }
 
@@ -71,9 +68,6 @@ fn serde_roundtrip_signed_integers() {
     let de: Static<i64> = serde_json::from_str(&json).unwrap();
 
     for key in [-500i64, -100, 0, 100, 499] {
-        assert_eq!(
-            index.lower_bound(&data, &key),
-            de.lower_bound(&data, &key)
-        );
+        assert_eq!(index.lower_bound(&data, &key), de.lower_bound(&data, &key));
     }
 }
