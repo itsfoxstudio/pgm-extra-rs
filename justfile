@@ -1,6 +1,3 @@
-# pgm-index-rs justfile
-# Run `just --list` to see all available recipes
-
 set shell := ["bash", "-uc"]
 
 # Default recipe: show help
