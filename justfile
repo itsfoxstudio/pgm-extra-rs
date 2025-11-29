@@ -147,7 +147,7 @@ release-patch: release-check
 
     # Commit and tag
     git add Cargo.toml Cargo.lock
-    git commit -m "chore: release v$new_version"
+    git commit -m "release: v$new_version"
     git tag -a "v$new_version" -m "Release v$new_version"
 
     echo "✓ Released v$new_version"
@@ -168,7 +168,7 @@ release-minor: release-check
     cargo check --quiet
 
     git add Cargo.toml Cargo.lock
-    git commit -m "chore: release v$new_version"
+    git commit -m "release: v$new_version"
     git tag -a "v$new_version" -m "Release v$new_version"
 
     echo "✓ Released v$new_version"
@@ -189,7 +189,7 @@ release-major: release-check
     cargo check --quiet
 
     git add Cargo.toml Cargo.lock
-    git commit -m "chore: release v$new_version"
+    git commit -m "release: v$new_version"
     git tag -a "v$new_version" -m "Release v$new_version"
 
     echo "✓ Released v$new_version"
