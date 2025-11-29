@@ -136,8 +136,10 @@ where
             return pos;
         }
 
-        let lo = approx.lo;
-        let hi = approx.hi.min(len);
+        // For values not found directly, fall back to full binary search in
+        // the predicted range. Extend bounds slightly to handle edge cases.
+        let lo = approx.lo.saturating_sub(self.epsilon);
+        let hi = (approx.hi + self.epsilon).min(len);
         let slice = &data[lo..hi];
         lo + slice.partition_point(|x| x < value)
     }
