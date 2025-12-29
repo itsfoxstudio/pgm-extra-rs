@@ -72,6 +72,7 @@ test-all:
     cargo test --no-default-features --features serde
     cargo test --features parallel
     cargo test --features serde
+    cargo test --features rkyv
     cargo test --all-features
 
 # Run tests with output shown
