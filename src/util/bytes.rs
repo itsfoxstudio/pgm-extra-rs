@@ -12,6 +12,10 @@ use core::cmp::Ordering;
 /// that preserves lexicographic ordering for the prefix.
 /// The full original data should be kept separately for exact lookups.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+#[cfg_attr(
+    feature = "rkyv",
+    derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize)
+)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[repr(transparent)]
 pub struct Prefix(pub u64);

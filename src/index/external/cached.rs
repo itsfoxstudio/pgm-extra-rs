@@ -35,6 +35,10 @@ use crate::util::range::range_to_indices;
 /// assert!(index.contains(&keys, &5000));
 /// ```
 #[derive(Debug)]
+#[cfg_attr(
+    feature = "rkyv",
+    derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize)
+)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(
     feature = "serde",
@@ -45,7 +49,8 @@ where
     T::Key: FastHash + core::default::Default,
 {
     inner: Static<T>,
-    #[cfg_attr(feature = "serde", serde(skip, default = "HotCache::new"))]
+    #[cfg_attr(feature = "rkyv", rkyv(with = rkyv::with::Skip))]
+    #[cfg_attr(feature = "serde", serde(skip, default))]
     cache: HotCache<T::Key>,
 }
 

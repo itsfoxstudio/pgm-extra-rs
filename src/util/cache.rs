@@ -163,7 +163,7 @@ mod tests {
         let hit0 = cache.lookup(&0);
         let hit64 = cache.lookup(&64);
 
-        assert!(hit0.is_some() || hit64.is_some());
+        assert!(hit0.is_some() && hit64.is_some());
     }
 
     #[test]

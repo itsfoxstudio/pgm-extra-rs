@@ -39,6 +39,10 @@ use crate::util::range::range_to_indices;
 /// let map = Map::from_sorted_unique(entries, 64, 4).unwrap();
 /// assert_eq!(map.get(&"banana"), Some(&2));
 /// ```
+#[cfg_attr(
+    feature = "rkyv",
+    derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize)
+)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(
     feature = "serde",

@@ -43,7 +43,8 @@
 //! - `std` (default): Enables `Dynamic` index and other std-only features
 //! - `parallel`: Enables parallel index construction
 //! - `simd`: Enables SIMD-accelerated search routines
-//! - `serde`: Enables serialization/deserialization
+//! - `serde`: Enables serialization/deserialization with serde
+//! - `rkyv`: Enables zero-copy serialization/deserialization with rkyv
 //!
 //! ## Performance
 //!

@@ -80,7 +80,8 @@ Available features:
 - `std`: Enables `Dynamic` index and other std-only features
 - `simd`: Enables SIMD for linear search
 - `parallel`: Enables parallel index construction
-- `serde`: Enables serialization/deserialization
+- `serde`: Enables serialization/deserialization with serde
+- `rkyv`: Enables zero-copy serialization/deserialization with rkyv
 
 
 ## Quick Start

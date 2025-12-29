@@ -5,6 +5,10 @@
 ///
 /// The actual key position (if it exists) is guaranteed to be in `[lo, hi)`.
 #[derive(Clone, Copy, Debug, Default)]
+#[cfg_attr(
+    feature = "rkyv",
+    derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize)
+)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct ApproxPos {
     /// The predicted position of the key.

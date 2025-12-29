@@ -31,6 +31,10 @@ use crate::index::key::Indexable;
 /// assert!(index.contains(&5));
 /// assert!(!index.contains(&4));
 /// ```
+#[cfg_attr(
+    feature = "rkyv",
+    derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize)
+)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(
     feature = "serde",

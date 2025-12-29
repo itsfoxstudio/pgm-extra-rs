@@ -40,6 +40,10 @@ use crate::util::range::range_to_indices;
 /// let set = Set::from_sorted_unique(words, 64, 4).unwrap();
 /// assert!(set.contains(&"banana"));
 /// ```
+#[cfg_attr(
+    feature = "rkyv",
+    derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize)
+)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(
     feature = "serde",

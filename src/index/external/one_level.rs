@@ -34,6 +34,10 @@ use crate::util::search::{pgm_add_eps, pgm_sub_eps};
 /// assert!(index.contains(&keys, &500));
 /// ```
 #[derive(Clone, Debug)]
+#[cfg_attr(
+    feature = "rkyv",
+    derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize)
+)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(
     feature = "serde",

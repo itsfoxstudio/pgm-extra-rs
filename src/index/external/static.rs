@@ -41,7 +41,11 @@ const LINEAR_SEARCH_THRESHOLD_SEGMENTS: usize = 32;
 /// assert!(index.contains(&keys, &5000));
 /// assert_eq!(index.lower_bound(&keys, &5000), 5000);
 /// ```
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
+#[cfg_attr(
+    feature = "rkyv",
+    derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize)
+)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(
     feature = "serde",
