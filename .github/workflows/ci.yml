@@ -37,15 +37,19 @@ jobs:
       matrix:
         features:
           - ""
-          - "--no-default-features"
+          - "--no-default-features --features parallel"
           - "--no-default-features --features serde"
+          - "--no-default-features --features rkyv"
+          - "--no-default-features"
           - "--features parallel"
           - "--features serde"
+          - "--features rkyv"
           - "--all-features"
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - run: cargo test ${{ matrix.features }}
+      - uses: taiki-e/install-action@nextest
+      - run: cargo nextest run ${{ matrix.features }}
 
   doc:
     name: Documentation
