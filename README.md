@@ -4,7 +4,7 @@
 [![Documentation](https://docs.rs/pgm-extra/badge.svg)](https://docs.rs/pgm-extra)
 [![License](https://img.shields.io/crates/l/pgm-extra.svg)](LICENSE)
 
-A high-performance Rust implementation of the PGM-index (Piecewise Geometric Model index).
+A high-performance Rust implementation of the PGM-index (Piecewise Geometric Model index).<br />
 Includes multiple variants of the index, as well as drop-in replacements for `BTreeSet` and `BTreeMap`.
 
 Based on the paper: [The PGM-index: a fully-dynamic compressed learned index with provable worst-case bounds](https://dl.acm.org/doi/10.14778/3389133.3389135) by Paolo Ferragina and Giorgio Vinciguerra.
